@@ -1,0 +1,20 @@
+Welcome to Deap X Operating System 1.0.0!
+
+Thank you for choosing Deap X.
+
+Features:
+
+Debian 12 Bookworm base
+
+XFCE Desktop Environment
+
+Brave Browser (default - privacy focused)
+
+Full multimedia support
+
+Development tools included
+
+Documentation: https://deapx.org/docs
+Support: https://deapx.org/support
+
+Enjoy your Deap X experience!

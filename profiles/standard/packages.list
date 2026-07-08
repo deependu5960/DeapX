@@ -1,0 +1,7 @@
+# Standard Profile Packages
+# Full desktop with all applications
+# Include all package categories
+@base
+@desktop
+@multimedia
+@network

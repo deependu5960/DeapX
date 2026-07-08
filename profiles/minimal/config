@@ -1,0 +1,4 @@
+#Deap X Minimal Profile Configuration
+#Minimal installation with only essential packages
+PROFILE_DESCRIPTION="Minimal Deap X installation"
+PROFILE_PACKAGES="base"
