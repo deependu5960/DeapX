@@ -1,7 +1,0 @@
-IMAGES="iso-hybrid"
-FILESYSTEM="fat16"
-FILESYSTEM_LABEL="DEAPX_LIVE"
-BOOTLOADER="syslinux"
-ISO_VOLUME="Deap X 1.0.0 Live ISO"
-ISO_PUBLISHER="Deap X Operating System"
-ISO_APPLICATION="Deap X Live System"

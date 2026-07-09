@@ -1,2 +1,0 @@
-PROFILE_DESCRIPTION="Development workstation with full toolchain"
-PROFILE_PACKAGES="base desktop multimedia network development"

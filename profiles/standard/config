@@ -1,4 +1,0 @@
-#Deap X Standard Profile Configuration
-#Full desktop installation with all features
-PROFILE_DESCRIPTION="Standard Deap X desktop installation"
-PROFILE_PACKAGES="base desktop multimedia network"
