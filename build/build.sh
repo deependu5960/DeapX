@@ -132,17 +132,64 @@ echo "  Setting up live-build configuration..."
 export LB_BASE="$PROJECT_ROOT/live-build"
 echo "  Live-build base directory: $LB_BASE"
 
+
+
+
 echo ""
 echo "========================================="
-echo "Build environment prepared successfully!"
+echo "Starting DeapX ISO Build"
 echo "========================================="
-echo "Project: $NAME"
-echo "Version: $VERSION"
-echo "Debian Release: $DEBIAN_RELEASE"
-echo "Architecture: $ARCH"
-echo "Profile: $PROFILE"
+
+echo "[7/8] Entering live-build environment..."
+
+cd "$LB_BASE"
+
+echo "  Running lb config..."
+
+chmod +x auto/config
+
+./auto/config
+
+echo "  live-build configuration completed."
+
 echo ""
-echo "Build environment is ready for ISO generation."
+echo "[8/8] Building ISO image..."
+echo "  This may take a long time."
+
+lb build
+
+echo ""
+echo "========================================="
+echo "ISO Build Completed"
+echo "========================================="
+
+# Find generated ISO
+ISO_FILE=$(find "$LB_BASE" -maxdepth 1 -name "*.iso" | head -n 1)
+
+if [ -z "$ISO_FILE" ]; then
+    echo "ERROR: ISO file not found!"
+    exit 1
+fi
+
+OUTPUT_DIR="$PROJECT_ROOT/iso"
+
+mkdir -p "$OUTPUT_DIR"
+
+OUTPUT_ISO="$OUTPUT_DIR/${NAME}-${VERSION}-${ARCH}.iso"
+
+echo "Copying ISO:"
+echo "$ISO_FILE"
+echo "to"
+echo "$OUTPUT_ISO"
+
+cp "$ISO_FILE" "$OUTPUT_ISO"
+
+echo ""
+echo "========================================="
+echo "DeapX ISO Ready"
+echo "========================================="
+echo "Location:"
+echo "$OUTPUT_ISO"
 echo "========================================="
 
 exit 0
