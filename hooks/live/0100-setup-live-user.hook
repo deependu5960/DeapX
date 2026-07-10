@@ -1,0 +1,18 @@
+#!/bin/bash
+# DeapX OS — setup live user permission binary hook
+set -e
+
+# Load build-time environment if available
+if [[ -f /usr/share/deapx/build.env ]]; then
+    # shellcheck source=/dev/null
+    source /usr/share/deapx/build.env
+fi
+
+LIVE_USER="${LIVE_USERNAME:-deapx}"
+
+# Correctly target the chroot filesystem path relative to the build workspace, 
+# preventing accidental ownership modification of host users.
+if [ -d "chroot/home/${LIVE_USER}" ]; then
+    echo "Setting ownership of chroot/home/${LIVE_USER} to 1000:1000..."
+    chown -R 1000:1000 "chroot/home/${LIVE_USER}"
+fi

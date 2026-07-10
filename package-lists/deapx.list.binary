@@ -1,0 +1,13 @@
+# DeapX OS — binary stage packages (ISO tooling)
+grub-pc-bin
+grub-efi-amd64-bin
+grub-efi-amd64-signed
+grub-common
+shim-signed
+shim-helpers-amd64-signed
+isolinux
+syslinux
+syslinux-common
+mtools
+dosfstools
+xorriso

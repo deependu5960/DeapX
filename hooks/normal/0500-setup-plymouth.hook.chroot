@@ -1,0 +1,18 @@
+#!/bin/bash
+# DeapX OS — setup plymouth chroot hook
+set -e
+
+# Load build-time environment if available
+if [[ -f /usr/share/deapx/build.env ]]; then
+    # shellcheck source=/dev/null
+    source /usr/share/deapx/build.env
+fi
+
+THEME="${PLYMOUTH_THEME:-spinner}"
+
+echo "Configuring Plymouth theme to ${THEME}..."
+if plymouth-set-default-theme -l 2>/dev/null | grep -q "^${THEME}$"; then
+    plymouth-set-default-theme "${THEME}"
+    # Regenerate initramfs inside chroot to include the Plymouth theme files
+    update-initramfs -u
+fi

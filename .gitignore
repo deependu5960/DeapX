@@ -1,0 +1,27 @@
+# live-build artifacts
+.cache/
+.chroot/
+.binary/
+.source/
+.build/
+config/bootstrap
+config/chroot
+config/common
+config/binary
+config/source
+config/package-lists
+config/hooks
+config/includes.chroot
+live-image-*.iso
+live-image-*.img
+live-image-*.zip
+live-image-*.tar*
+deapx-os-*.iso
+*.deb
+*.udeb
+build.log
+# Editor / OS
+*~
+*.swp
+.DS_Store
+Thumbs.db

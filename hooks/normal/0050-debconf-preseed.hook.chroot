@@ -1,0 +1,28 @@
+#!/bin/bash
+# DeapX OS — debconf preseed chroot hook
+set -e
+
+# Load build-time environment if available
+if [[ -f /usr/share/deapx/build.env ]]; then
+    # shellcheck source=/dev/null
+    source /usr/share/deapx/build.env
+fi
+
+LOCALE="${LOCALE_DEFAULT:-en_US.UTF-8}"
+KEYMAP_LAYOUT="${KEYMAP:-us}"
+
+echo "Preseeding debconf layout values (Locale: ${LOCALE}, Keymap: ${KEYMAP_LAYOUT})..."
+
+# Preseed locales and keyboard settings
+debconf-set-selections <<EOF
+locales locales/default_environment_locale select ${LOCALE}
+locales locales/locales_to_be_generated multiselect ${LOCALE} UTF-8
+keyboard-configuration keyboard-configuration/layout select ${KEYMAP_LAYOUT}
+keyboard-configuration keyboard-configuration/modelcode select pc105
+keyboard-configuration keyboard-configuration/toggle select No toggling
+keyboard-configuration keyboard-configuration/switch select No temporary switch
+keyboard-configuration keyboard-configuration/variant select English (US)
+EOF
+
+# Force reconfigure packages non-interactively to apply values
+DEBIAN_FRONTEND=noninteractive dpkg-reconfigure -f noninteractive locales keyboard-configuration console-setup

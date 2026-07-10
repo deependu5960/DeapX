@@ -1,0 +1,11 @@
+NAME="DeapX OS"
+PRETTY_NAME="DeapX OS"
+VERSION="1.0.0"
+VERSION_ID="1.0.0"
+VERSION_CODENAME="foundation"
+ID=deapx
+ID_LIKE=debian
+HOME_URL="https://deapx.org/"
+SUPPORT_URL="https://deapx.org/support"
+BUG_REPORT_URL="https://deapx.org/issues"
+LOGO=deapx

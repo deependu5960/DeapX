@@ -1,0 +1,22 @@
+#!/bin/bash
+# DeapX OS — setup hostname chroot hook
+set -e
+
+# Load build-time environment if available
+if [[ -f /usr/share/deapx/build.env ]]; then
+    # shellcheck source=/dev/null
+    source /usr/share/deapx/build.env
+fi
+
+HOSTNAME="${HOSTNAME:-deapx}"
+
+echo "Setting hostname inside chroot to ${HOSTNAME}..."
+echo "${HOSTNAME}" > /etc/hostname
+
+cat > /etc/hosts <<EOF
+127.0.0.1       localhost
+127.0.1.1       ${HOSTNAME}.local ${HOSTNAME}
+::1             localhost ip6-localhost ip6-loopback
+ff02::1         ip6-allnodes
+ff02::2         ip6-allrouters
+EOF

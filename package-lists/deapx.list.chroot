@@ -1,0 +1,151 @@
+# DeapX OS — chroot package list
+# --- Kernel & firmware ---
+linux-image-amd64
+firmware-linux
+firmware-linux-nonfree
+firmware-misc-nonfree
+
+# --- Live system ---
+live-boot
+live-boot-initramfs-tools
+live-config
+live-config-systemd
+live-tools
+systemd
+systemd-sysv
+dbus
+udev
+
+# --- KDE Plasma ---
+kde-plasma-desktop
+plasma-desktop
+plasma-workspace
+plasma-nm
+plasma-pa
+partitionmanager
+plasma-systemmonitor
+kwin-x11
+kwin-wayland
+dolphin
+konsole
+kate
+spectacle
+gwenview
+okular
+ark
+kdeconnect
+bluedevil
+powerdevil
+polkit-kde-agent-1
+kscreen
+kgamma5
+kde-config-gtk-style
+kde-config-sddm
+plasma-discover
+plasma-vault
+
+# --- Display manager ---
+sddm
+
+# --- Boot splash ---
+plymouth
+plymouth-label
+plymouth-themes
+
+# --- Bootloader (target) ---
+grub-pc
+grub-efi-amd64
+grub-common
+shim-signed
+shim-helpers-amd64-signed
+grub-efi-amd64-signed
+
+# --- Networking ---
+network-manager
+network-manager-openvpn-gnome
+wpasupplicant
+openssh-client
+curl
+wget
+ca-certificates
+
+# --- Audio ---
+pipewire
+pipewire-pulse
+pipewire-audio
+wireplumber
+
+# --- Fonts ---
+fonts-dejavu-core
+fonts-dejavu-extra
+fonts-liberation
+fonts-noto
+fonts-noto-color-emoji
+
+# --- Essentials ---
+sudo
+locales
+keyboard-configuration
+console-setup
+kbd
+bash-completion
+nano
+vim-tiny
+less
+man-db
+manpages
+rsync
+htop
+pciutils
+usbutils
+lsof
+strace
+file
+xz-utils
+zip
+unzip
+apt
+apt-utils
+dpkg
+debconf
+debconf-utils
+
+# --- Filesystem tools ---
+dosfstools
+mtools
+e2fsprogs
+ntfs-3g
+exfat-fuse
+exfatprogs
+
+# --- X11 / Wayland base ---
+xserver-xorg
+xserver-xorg-core
+xserver-xorg-input-all
+xserver-xorg-video-all
+xwayland
+libgl1-mesa-dri
+libglx-mesa0
+mesa-vulkan-drivers
+mesa-utils
+
+# --- Integration ---
+accountsservice
+avahi-daemon
+bluetooth
+bluez
+cups
+cups-client
+cups-browsed
+packagekit
+packagekit-tools
+udisks2
+upower
+bolt
+fwupd
+tpm2-tools
+
+# --- Security base ---
+apparmor
+apparmor-profiles
+openssl

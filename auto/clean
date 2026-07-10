@@ -1,0 +1,4 @@
+#!/bin/sh
+# live-build auto clean hook
+set -e
+lb clean --purge

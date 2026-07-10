@@ -1,0 +1,20 @@
+#!/bin/bash
+# DeapX OS — setup sddm chroot hook
+set -e
+
+echo "Configuring SDDM display manager..."
+echo "sddm shared/default-x-sessions select plasma" | debconf-set-selections
+echo "sddm shared/wayland-sessions select plasma" | debconf-set-selections
+DEBIAN_FRONTEND=noninteractive dpkg-reconfigure sddm 2>/dev/null || true
+systemctl enable sddm 2>/dev/null || true
+
+mkdir -p /etc/sddm.conf.d
+cat > /etc/sddm.conf.d/deapx.conf <<'EOF'
+[General]
+DisplayServer=wayland
+GreeterEnvironment=QT_WAYLAND_SHELL_INTEGRATION=layer-shell
+Numlock=on
+
+[Theme]
+Current=
+EOF
